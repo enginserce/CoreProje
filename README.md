@@ -1,3 +1,8 @@
+Dinamik Blog Projesi (Admin&Yazar&Kullanıcı)
+Admin Paneli
+Yazar Paneli
+
+
 Katmanların Oluşturulması</br>
 Entitylerin Oluşturulması</br>
 Entity Framework Paketlerin kurulması</br>
