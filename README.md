@@ -41,3 +41,9 @@ Identity ile Login işlemi</br>
 Identity ile profil düzenleme işlemleri</br>
 Rol düzenleme, Rol atama, Kullanıcıya ait Roller</br>
 Identity ile Register işlemi</br>
+
+Projeden görseller:
+![image](https://user-images.githubusercontent.com/73286476/203406201-7cf9cd91-0dc8-45d2-b02d-6f59142f1f5e.png)
+![image](https://user-images.githubusercontent.com/73286476/203406326-d2202ba3-d39a-416b-8eb6-4ac1268fb963.png)
+![image](https://user-images.githubusercontent.com/73286476/203406377-1b26292b-1d54-463b-af8f-da36293183d3.png)
+
