@@ -1,0 +1,17 @@
+﻿<div class="col-lg-3">
+    <div class="ibox ">
+        <div class="ibox-content mailbox-content">
+            <div class="file-manager">
+                <a class="btn btn-block btn-primary compose-mail" href="/Admin/Message/Inbox">Mesaj Kutusu</a>
+                <div class="space-25"></div>
+                <h5>Kısayollar</h5>
+                <ul class="folder-list m-b-md" style="padding: 0">
+                    <li><a href="/Admin/Message/Inbox"> <i class="fa fa-inbox "></i> Gelen Mesajlar <span class="label label-info float-right">@ViewBag.inboxCount</span> </a></li>
+                    <li><a href="/Admin/Message/Sendbox"> <i class="fa fa-envelope-o"></i> Giden Mesajlar  <span class="label label-primary float-right">@ViewBag.sendboxCount</span> </a></li>
+                    <li><a href="/Admin/Message/ComposeMessage"> <i class="fa fa-plus"></i> Yeni Mesaj Oluştur</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

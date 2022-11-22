@@ -1,0 +1,51 @@
+﻿@model List<Notification>
+@{
+    ViewData["Title"] = "AllNotification";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bildirimler</h4>
+                <div class="table-responsive">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Başlık </th>
+                                <th> Konu </th>
+                                <th> Tarih </th>
+                                <th> Detaylar </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.NotificationID</td>
+                                    <td>
+                                        <label class="badge badge-gradient-success">@item.NotificationType</label>
+                                    </td>
+                                        @if (item.NotificationDetails.Length > 50)
+                                        {
+                                        <td>@item.NotificationDetails.Substring(0, 50)..</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.NotificationDetails</td>
+                                        }
+                                    <td> @item.NotificationDate.ToString("dd MMMM yyyy") </td>
+                                    <td> <a href="/Notification/NotificationDetails/@item.NotificationID" class="btn btn-dark">Detaylar</a> </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,197 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<button type="button" id="btngetlist" class="btn btn-outline-primary">Yazar Listesi</button>
+<button type="button" id="btngetbyid" class="btn btn-outline-success">Yazar Getir</button>
+<button type="button" id="btnaddwriter" class="btn btn-outline-info">Yazar Ekle</button>
+<button type="button" id="btndeletewriter" class="btn btn-outline-danger">Yazar Sil</button>
+<button type="button" id="btnupdatewriter" class="btn btn-outline-warning">Yazar Güncelle</button>
+
+<br />
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <div id="writerlist"></div>
+        <div id="writerget"></div>
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Yazar Getir</h5>
+            </div>
+            <div class="ibox-content">
+                <div>
+                    <div class="form-group row has-success">
+                        <label class="col-sm-2 col-form-label">Yazar ID</label>
+
+                        <div class="col-sm-10"><input type="text" class="form-control" id="writerid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Yazar Ekleme</h5>
+            </div>
+            <div class="ibox-content">
+                <div>
+                    <div class="form-group row has-success">
+                        <label class="col-sm-2 col-form-label">Yazar ID</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txtWriterid">
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <label class="col-sm-2 col-form-label">Yazar Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txtWritername">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Yazar Silme</h5>
+            </div>
+            <div class="ibox-content">
+                <div>
+                    <div class="form-group row has-success">
+                        <label class="col-sm-2 col-form-label">Yazar ID</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txtid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Yazar Güncelleme</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="form-group row has-success">
+                    <label class="col-sm-2 col-form-label">Yazar ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtid1">
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <label class="col-sm-2 col-form-label">Yazar Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtwritername1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+    {
+    <script>
+        $("#btngetlist").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Admin/Writer/WriterList/",
+                success: function (func) {
+                    let w = jQuery.parseJSON(func);
+                    console.log(w);
+                    let tablehtml = "<div class='ibox-title'><h5>Yazar Listesi</h5></div><div class='ibox-content'><table class='table'><thead><tr><th> Yazar ID</th> <th> Yazar Adı </th></tr></thead>";
+                    $.each(w, (index, value) => {
+                        tablehtml += `<tr><td>${value.Id}</td> <td>${value.Name}</td></tr>`
+                    });
+                    tablehtml += "</table></div><br>";
+                    $("#writerlist").html(tablehtml);
+                }
+            });
+        });
+
+        $("#btngetbyid").click(x => {
+            let id = $("#writerid").val();
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Admin/Writer/GetWriterById/",
+                data: { writerid: id },
+                success: function (func) {
+                    let w = jQuery.parseJSON(func);
+                    console.log(w);
+                    let getvalue = `<div class='ibox-title'><h5>Girilen ID Yazar Listesi</h5></div><div class='ibox-content'><table class='table'><thead><tr><th> Yazar ID</th> <th> Yazar Adı </th></tr></thead> <tr><td> ${w.Id} </td><td>${w.Name}</td></tr></table></div><br>`
+                    $("#writerget").html(getvalue);
+                }
+            });
+        });
+
+        $("#btnaddwriter").click(function () {
+            let writer = {
+                Id: $("#txtWriterid").val(),
+                Name: $("#txtWritername").val()
+            };
+            $.ajax({
+                type: "post",
+                url: "/Admin/Writer/AddWriter/",
+                data: writer,
+                success: function (func) {
+                    let result = jQuery.parseJSON(func);
+                    alert("Yazar ekleme işlemi başarılı şekilde gerçekleştirildi.");
+                }
+            });
+        });
+
+        $("#btndeletewriter").click(x => {
+            let id = $("#txtid").val();
+            $.ajax({
+                url: "/Admin/Writer/DeleteWriter/" + id,
+                type: "post",
+                dataType: "json",
+                success: function (func) {
+                    alert("Yazar silme işlemi başarıyla gerçekleştirildi.");
+                }
+            });
+        });
+
+        $("#btnupdatewriter").click(function () {
+            let writer = {
+                Id: $("#txtid1").val(),
+                Name: $("#txtwritername1").val()
+            };
+            $.ajax({
+                type: "post",
+                url: "/Admin/Writer/UpdateWriter/",
+                data: writer,
+                success: function (funk) {
+                    alert("Yazar ismi başarıyla güncellendi.");
+                }
+            });
+        });
+
+    </script>
+}

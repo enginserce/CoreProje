@@ -1,0 +1,68 @@
+﻿@model List<AppRole>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Roller</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="/Admin/Role/AddRole" class="dropdown-item">Yeni Rol Ekle</a>
+                            </li>
+                            <li>
+                                <a href="/Admin/Role/UserRoleList" class="dropdown-item">Kullanıcı Rol Listesi</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Adı</th>
+                                <th>Düzenle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th><span class="label label-default">@item.Id</span></th>
+                                    <td>@item.Name</td>
+                                    <td><a href="/Admin/Role/Edit/@item.Id" class="btn btn-outline-warning">Düzenle</a></td>
+                                    <td><a href="/Admin/Role/Delete/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Admin/Role/AddRole" class="btn btn-outline-success">Yeni Rol Ekle</a>
+                    <a href="/Admin/Role/UserRoleList" class="btn btn-outline-primary">Kullanıcı Rol Listesi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}

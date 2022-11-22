@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Blog
+    
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Blog Ekle</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Blog Başlığı</label>
+                    <input type="text" class="form-control" name="BlogTitle" >
+                    @Html.ValidationMessageFor(x=> x.BlogTitle, "", new { @class = "text-danger"})
+                </div>
+                <div class="form-group">
+                    <label>Blog Görseli</label>
+                    <input type="text" class="form-control" name="BlogImage">
+                    @Html.ValidationMessageFor(x=> x.BlogImage, "", new { @class = "text-danger"})
+                </div>
+                <div class="form-group">
+                    <label>Blog Küçük Görseli</label>
+                    <input type="text" class="form-control" name="BlogThumbnailImage">
+                </div>
+                
+                <div class="form-group">
+                    <label>Kategori Seçin</label>
+                    @Html.DropDownListFor(x=> x.CategoryID,(List<SelectListItem>)ViewBag.cv, new { @class = "form-control"})
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">İçerik</label>
+                    <textarea class="form-control" rows="6" name="BlogContent"></textarea>
+                    @Html.ValidationMessageFor(x=> x.BlogContent, "", new { @class = "text-danger"})
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>
+

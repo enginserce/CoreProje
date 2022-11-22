@@ -1,0 +1,62 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                
+                        @await Component.InvokeAsync("Info")
+                   
+                <div class="logo-element">
+                    AP
+                </div>
+            </li>
+            <li>
+                <a href="/Admin/Index"><i class="fa fa-th-large"></i> <span class="nav-label">Anasayfa</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Chart"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Grafikler</span>  </a>
+            </li>
+            <li>
+                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mesajlar </span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="/Admin/Message/Inbox">Gelen Kutusu</a></li>
+                    <li><a href="/Admin/Message/Sendbox">Giden Kutusu</a></li>
+                    <li><a href="/Admin/Message/ComposeMessage">Yeni Mesaj Oluştur</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/Admin/Category"><i class="fa fa-group"></i> <span class="nav-label">Kategoriler</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Blog"><i class="fa fa-list-alt"></i> <span class="nav-label">Bloglar</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Comment"><i class="fa fa-comment"></i> <span class="nav-label">Yorumlar</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Role"><i class="fa fa-user"></i> <span class="nav-label">Roller</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Writer"><i class="fa fa-user"></i> <span class="nav-label">Yazarlar</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Notification"><i class="fa fa-bell"></i> <span class="nav-label">Bildirimler</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/About"><i class="fa fa-address-book"></i> <span class="nav-label">Hakkımızda</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Contact"><i class="fa fa-phone"></i> <span class="nav-label">İletişim</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Settings"><i class="fa fa-wrench"></i> <span class="nav-label">Ayarlar</span>  </a>
+            </li>
+            <li>
+                <a href="/Dashboard/Index"><i class="fa fa-home"></i> <span class="nav-label">Yazar Paneli</span>  </a>
+            </li>
+            <li>
+                <a href="/Login/LogOut"><i class="fa fa-sign-out"></i> <span class="nav-label">Çıkış Yap</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

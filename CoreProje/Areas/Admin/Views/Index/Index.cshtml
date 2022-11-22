@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    @await Component.InvokeAsync("Statistic1")
+    @await Component.InvokeAsync("Statistic2")
+    @await Component.InvokeAsync("Statistic3")
+    @await Component.InvokeAsync("Statistic4")
+</div>
+
+@section scripts
+    {
+        <scripts>
+
+        </scripts>
+}

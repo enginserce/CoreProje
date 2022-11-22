@@ -1,0 +1,49 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "UserRoleList";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Kullanıcıların Rol Listesi</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ad Soyad</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Rol Atama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th><span class="label label-default">@item.Id</span></th>
+                                    <td>@item.NameSurname</td>
+                                    <td>@item.UserName</td>
+                                    <td><a href="/Admin/Role/AssignRole/@item.Id" class="btn btn-outline-warning">Role Ata</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Admin/Role" class="btn btn-outline-primary">Role Listesine Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}
+

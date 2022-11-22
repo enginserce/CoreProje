@@ -1,0 +1,46 @@
+﻿<div class="row">
+    <div class="col-lg-6">
+        <div class="widget-head-color-box navy-bg p-lg text-center">
+            <div class="m-b-md">
+                <h2 class="font-bold no-margins">
+                    @ViewBag.nameSurname
+                </h2>
+            </div>
+            <img src="/WriterImageFiles/@ViewBag.userImage" class="rounded-circle circle-border m-b-md" alt="profile" width="140px;" height="140px;">
+        </div>
+        <div class="widget-text-box">
+            <ul class="list-unstyled m-t-md">
+                <li>
+                    <span class="fa fa-envelope m-r-xs"></span>
+                    <label>Mail:</label>
+                    @ViewBag.userMail
+                </li>
+                <li>
+                    <span class="fa fa-user m-r-xs"></span>
+                    <label>Kullanıcı Adı:</label>
+                    @ViewBag.userName
+                </li>
+                <li>
+                    <span class="fa fa-phone m-r-xs"></span>
+                    <label>Telefon:</label>
+                    @ViewBag.userPhone
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="widget red-bg p-lg text-center">
+            <div class="m-b-md">
+                <a href="/Admin/Contact" style="color:white;">
+                <i class="fa fa-phone fa-4x"></i>
+                <h1 class="m-xs">@ViewBag.message</h1>
+                    <h3 class="font-bold no-margins">
+                        İletişim
+                    </h3>
+                <small>İletişim kurmak isteyenlerin sayısı.</small>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

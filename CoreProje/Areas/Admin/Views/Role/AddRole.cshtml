@@ -1,0 +1,31 @@
+﻿@using CoreProje.Models
+@model RoleViewModel
+
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Role Ekle</h4>
+            <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label>Role Adı</label>
+                        <input type="text" class="form-control" asp-for="name">
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}
+

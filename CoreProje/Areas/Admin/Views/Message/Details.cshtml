@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Message2>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 animated fadeInRight">
+    @foreach (var item in Model)
+    {
+            <div class="mail-box-header">
+                <h2>
+                @item.SenderUser.WriterName
+                </h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <h3>
+                            <span class="font-normal">Konu: </span>@item.Subject
+                    </h3>
+                    <h5>
+                            <span class="float-right font-normal">@item.MessageDate.ToLongDateString()</span>
+                            <span class="font-normal">Gönderen: </span>@item.SenderUser.WriterMail
+                    </h5>
+                </div>
+            </div>
+            <div class="mail-box">
+                <div class="mail-body">
+                    <p>
+                    @item.MessageDetails
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+    }
+    <a href="/Admin/Message/Inbox" class="btn btn-primary">Gelen Kutusu</a>
+    <a href="/Admin/Message/Sendbox" class="btn btn-warning">Giden Kutusu</a>
+</div>
+@section scripts
+    {
+            <scripts>
+            </scripts>
+}
+
+

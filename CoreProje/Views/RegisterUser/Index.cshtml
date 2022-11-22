@@ -1,0 +1,96 @@
+﻿@model UserSignUpViewModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kayıt Sayfası</title>
+
+    <link href="~/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/admin/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="~/admin/css/animate.css" rel="stylesheet">
+    <link href="~/admin/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">+</h1>
+
+            </div>
+            <h3>Kayıt Sayfası</h3>
+            <p>Yeni bir hesap oluşturun.</p>
+            <form class="m-t" role="form" asp-action="Index">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" asp-for="nameSurname" placeholder="Adınız soyadınız" required="">
+                    <span asp-validation-for="nameSurname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" asp-for="Mail" placeholder="Mail adresiniz" required="">
+                    <span asp-validation-for="Mail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" asp-for="UserName" placeholder="Kullanıcı adı" required="">
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" asp-for="Password" placeholder="Şifre" required="">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Şifre Tekrar" required="">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <div class="checkbox i-checks">
+                        <label>
+                            <input type="checkbox" asp-for="IsAcceptTheContract"><i></i>
+                            Kullanım şartlarını okudum kabul ediyorum. Kabul ediyorum
+                        </label>
+                        <span asp-validation-for="IsAcceptTheContract" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Kayıt Ol</button>
+
+                <p class="text-muted text-center"><small>Hesabınız var mı?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="/RegisterUser/Login">Giriş Yap</a>
+                <div class="text-danger" asp-validation-summary="ModelOnly">
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="~/admin/js/jquery-3.1.1.min.js"></script>
+    <script src="~/admin/js/popper.min.js"></script>
+    <script src="~/admin/js/bootstrap.js"></script>
+    <!-- iCheck -->
+    <script src="~/admin/js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+</body>
+
+</html>

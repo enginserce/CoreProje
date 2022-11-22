@@ -1,0 +1,28 @@
+﻿@model List<Message2>
+@{
+    ViewData["Title"] = "InBoxDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Gelen Kutusu Detayları</h4>
+            <div class="form-group">
+                @foreach (var item in Model)
+                {
+                    <label class="badge badge-primary" style="float:left">Gönderen Kişi: @item.SenderUser.WriterName</label>
+                    <label class="badge badge-info" style="float:right">@item.MessageDate.ToString("dd MMMM yyyy")</label>
+                    <br />
+                    <br />
+                    <label class="badge badge-success">Konu: @item.Subject</label>
+                    <br />
+                    <br />
+                    <label class="badge badge-danger">Mesaj: </label>
+                    <p> @item.MessageDetails </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

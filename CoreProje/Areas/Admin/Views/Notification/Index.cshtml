@@ -1,0 +1,53 @@
+﻿@model List<Notification>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Bildirim Listesi</h5>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Bildirim Başlığı</th>
+                            <th>Durum</th>
+                            <th>Tarih</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th><span class="label label-default">@item.NotificationID</span></th>
+                                <td>@item.NotificationType</td>
+                                <th><span class="label label-success">@(item.NotificationStatus ? "Aktif" : "Pasif")</span></th>
+                                <td>@item.NotificationDate.ToLongDateString()</td>
+                                <td><a href="/Admin/Notification/Edit/@item.NotificationID" class="btn btn-outline-warning">Düzenle</a></td>
+                                <td><a href="/Admin/Notification/Delete/@item.NotificationID" class="btn btn-outline-danger" onclick="return confirm('Silmek istediğinize emin misiniz?')">Sil</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Notification/Add" class="btn btn-outline-success">Yeni Bildirim Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}
+

@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Blog Düzenleme</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    @Html.HiddenFor(x=>x.CategoryID, new {@class="form-control", @readonly ="readonly"})
+                </div>
+                <div class="form-group">
+                    <label>Blog Başlığı</label>
+                    @Html.TextBoxFor(x=>x.CategoryName, new {@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Kategori</label>
+                    @Html.TextBoxFor(x=>x.CategoryStatus, new {@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">İçerik</label>
+                    @Html.TextAreaFor(x=>x.CategoryDescription, new {@class="form-control", @rows = 10})
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}

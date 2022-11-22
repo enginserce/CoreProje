@@ -1,0 +1,23 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Notification>
+@{
+    ViewData["Title"] = "NotificationDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Bildirim Detayları</h4>
+            <div class="form-group">
+                @foreach (var item in Model)
+                {
+                    <label class="badge badge-gradient-success">@item.NotificationType</label>
+
+                    <label class="badge badge-gradient-info" style="float:right">@item.NotificationDate.ToString("dd MMMM yyyy")</label>
+                    <p> @item.NotificationDetails </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

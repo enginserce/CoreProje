@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yazarın Blogları</h4>
+            <p class="card-description" style="float:right">
+                <a href="/Blog/BlogAdd" class="btn btn-success">Yeni Blog Oluştur</a>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Blog Başlığı</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Kategori</th>
+                        <th>Durum</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>@item.BlogID</th>
+                            <td>@item.BlogTitle</td>
+                            <td>@item.BlogCreateDate.ToString("dd MMMM yyyy")</td>
+                            <td><label class="badge badge-info">@(item.Category.CategoryName)</label></td>
+                            <td><label class="badge badge-primary">@(item.BlogStatus ? "Aktif" : "Pasif")</label></td>
+                            <td><a href="/Blog/Edit/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
+                            <td><a href="/Blog/Delete/@item.BlogID" class="btn btn-danger">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

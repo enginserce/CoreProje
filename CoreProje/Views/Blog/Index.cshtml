@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="banner-inner">
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/">Anasayfa</a>
+    </li>
+    <li class="breadcrumb-item active">Blog</li>
+</ol>
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Bloglar</h3>
+        <div class="inner-sec">
+            <div class="left-blog-info-w3layouts-agileits text-left">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 card">
+                            <a href="/Blog/Details/@item.BlogID">
+                                <img src="@item.BlogImage" class="card-img-top img-fluid" alt="">
+                            </a>
+                            <div class="card-body">
+                                <ul class="blog-icons my-4">
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i> @item.BlogCreateDate.ToString("dd MMMM yyyy")
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-comment"></i> 0
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fas fa-list"></i> @item.Category.CategoryName
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <h5 class="card-title ">
+                                    <a href="/Blog/Details/@item.BlogID">@item.BlogTitle</a>
+                                </h5>
+                                @if (item.BlogContent.Length < 130)
+                                {
+                                    <p class="card-text mb-3">@item.BlogContent</p>
+                                }
+                                else
+                                {
+                                    <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,130).LastIndexOf(" "))...</p>
+                                }
+
+                                <a href="/Blog/Details/@item.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

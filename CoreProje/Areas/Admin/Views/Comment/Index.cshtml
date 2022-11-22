@@ -1,0 +1,99 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Yorumlar</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#" class="dropdown-item">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Üye</th>
+                                <th>Başlık</th>
+                                <th>Blog</th>
+                                <th>Puan</th>
+                                <th>Tarih</th>
+                                <th>Durum</th>
+                                <th>Düzenle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.CommentID</td>
+                                    <td>@item.CommentUserName</td>
+                                    <td>@item.CommentTitle</td>
+                                    <td>@item.Blog.BlogTitle</td>
+                                    @if (item.BlogScore >= 9)
+                                    {
+                                        <td class="text-navy"> <i class="fa fa-level-up"></i> @item.BlogScore </td>
+                                    }
+                                    else if (item.BlogScore == 7 || item.BlogScore == 8)
+                                    {
+                                    <td class="text-success"> <i class="fa fa-level-up"></i> @item.BlogScore </td>
+                                    }
+                                    else if (item.BlogScore == 4 || item.BlogScore == 5 || item.BlogScore == 6)
+                                    {
+                                        <td class="text-warning"> <i class="fa fa-level-up"></i> @item.BlogScore </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger"> <i class="fa fa-level-down"></i> @item.BlogScore </td>
+                                    }
+                                    <td>@item.CommentDate.ToLongDateString()</td>
+                                    @if(item.CommentStatus == true){
+                                        <td><label class="btn-sm btn-primary">Aktif</label></td>
+                                    }
+                                    else{
+                                        <td><label class="btn-sm btn-danger">Pasif</label></td>
+                                    }
+                                    <td><a href="/Admin/Comment/Edit/@item.CommentID" class="btn btn-outline-warning">Düzenle</a></td>
+                                    <td><a href="/Admin/Comment/Delete/@item.CommentID" class="btn btn-outline-danger">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}

@@ -1,0 +1,58 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+       @await Component.InvokeAsync("InfoWriter")
+        <li class="nav-item">
+            <a class="nav-link" href="/Dashboard/Index">
+                <span class="menu-title">Anasayfa</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link" href="/Blog/BlogListByWriter">
+                <span class="menu-title">Bloglarım</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Blog/BlogAdd">
+                <span class="menu-title">Yeni Blog</span>
+                <i class="mdi mdi-new-box menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Message/InBox">
+                <span class="menu-title">Gelen Kutusu</span>
+                <i class="mdi mdi-message menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Message/SendBox">
+                <span class="menu-title">Giden Kutusu</span>
+                <i class="mdi mdi-message menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Notification/AllNotification">
+                <span class="menu-title">Bildirimler</span>
+                <i class="mdi mdi-bell-outline menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/WriterEditProfile">
+                <span class="menu-title">Ayarlar</span>
+                <i class="mdi mdi-settings menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Login/LogOut">
+                <span class="menu-title">Çıkış Yap</span>
+                <i class="mdi mdi-power menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/Index">
+                <span class="menu-title" style="color:red;">Yönetici Paneli</span>
+            </a>
+        </li>
+    </ul>
+</nav>

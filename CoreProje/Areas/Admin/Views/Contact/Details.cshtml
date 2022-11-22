@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Contact>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 animated fadeInRight">
+     @foreach (var item in Model)
+       {
+    <div class="mail-box-header">
+        <h2>
+                @item.ContactUserName
+        </h2>
+        <div class="mail-tools tooltip-demo m-t-md">
+
+
+            <h3>
+                    <span class="font-normal">Konu: </span>@item.ContactSubject
+            </h3>
+            <h5>
+                    <span class="float-right font-normal">@item.ContactDate.ToLongDateString()</span>
+                    <span class="font-normal">Gönderen: </span>@item.ContactMail 
+            </h5>
+        </div>
+    </div>
+    <div class="mail-box">
+
+
+        <div class="mail-body">
+            <p>
+                    @item.ContactMessage
+            </p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    }
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}
+

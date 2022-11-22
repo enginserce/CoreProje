@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/admin/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/admin/css/animate.css" rel="stylesheet">
+    <link href="/admin/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <partial name="_AdminNavbar.cshtml" />
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    @await Component.InvokeAsync("Messages")
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                @RenderBody()
+            </div>
+            <div class="footer">
+                <div class="float-right">
+                    Designed by <strong>Engin Serçe</strong>
+                </div>
+                <div>
+                    <strong>Copyright</strong> &copy; @DateTime.Now.Year
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="/admin/js/jquery-3.1.1.min.js"></script>
+    <script src="/admin/js/popper.min.js"></script>
+    <script src="/admin/js/bootstrap.js"></script>
+    <script src="/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/admin/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="/admin/js/inspinia.js"></script>
+    <script src="/admin/js/plugins/pace/pace.min.js"></script>
+    <script src="/admin/js/plugins/iCheck/icheck.min.js"></script>
+    <script src="/admin/js/demo/peity-demo.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+    @await RenderSectionAsync("scripts")
+
+</body>
+
+</html>
+

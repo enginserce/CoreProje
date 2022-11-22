@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.Notification
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Bildirim Düzenleme</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <input type="hidden" class="form control"  asp-for="NotificationID"/>
+                </div>
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" asp-for="NotificationType" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Tarih</label>
+                    <input type="date" asp-for="NotificationDate" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Type Sembol</label>
+                    <input type="text" class="form-control" asp-for="NotificationTypeSymbol">
+                </div>
+                <div class="form-group">
+                    <label>Color</label>
+                    <input type="text" class="form-control" asp-for="NotificationColor">
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">İçerik</label>
+                    <textarea rows="10" cols="4" asp-for="NotificationDetails" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}
+

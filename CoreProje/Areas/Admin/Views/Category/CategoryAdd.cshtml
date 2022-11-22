@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Kategori Ekle</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Kategori Adı</label>
+                    <input type="text" class="form-control" name="CategoryName" asp-for="CategoryName">
+                    <span asp-validation-for="CategoryName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">İçerik</label>
+                    <textarea class="form-control" rows="6" name="CategoryDescription" asp-for="CategoryDescription"></textarea>
+                    <span asp-validation-for="CategoryDescription" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}

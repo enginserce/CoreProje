@@ -1,0 +1,54 @@
+﻿@model EntityLayer.Concrete.Comment
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Blog Düzenleme</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" asp-for="CommentID" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" asp-for="BlogID" />
+                </div>
+                <div class="form-group">
+                    <label>Üye</label>
+                   <input type="text" class="form-control" asp-for="CommentUserName" />
+                </div>
+                <div class="form-group">
+                    <label>Yorum Başlığı</label>
+                    <input type="text" class="form-control" asp-for="CommentTitle" />
+                </div>
+                <div class="form-group">
+                    <label>Tarih</label>
+                    <input type="date" class="form-control" asp-for="CommentDate" />
+                </div>
+                <div class="form-group">
+                    <label>Durum</label>
+                    <input type="text" class="form-control" asp-for="CommentStatus" />
+                </div>
+                <div class="form-group">
+                    <label>Score</label>
+                    <input type="text" class="form-control" asp-for="BlogScore" />
+                </div>
+                <div class="form-group">
+                    <label>Yorum</label>
+                    <textarea class="form-control" asp-for="CommentContent" rows="4" cols="10"></textarea>
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <scripts>
+
+    </scripts>
+}
+

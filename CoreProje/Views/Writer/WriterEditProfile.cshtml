@@ -1,0 +1,47 @@
+﻿@model UserUpdateModelView
+@{
+    ViewData["Title"] = "WriterEditProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Düzenleme</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Adı Soyadı</label>
+                    <input type="text" class="form-control" asp-for="NameSurname">
+                    <span asp-validation-for="NameSurname" class="alert-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Mail Adresi</label>
+                    <input type="text" class="form-control" asp-for="Mail" readonly="@(true)">
+                    <span asp-validation-for="Mail" class="alert-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" class="form-control" asp-for="UserName">
+                    <span asp-validation-for="UserName" class="alert-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Yeni Şifre</label>
+                    <input type="password" class="form-control" asp-for="Password" placeholder="********">
+                    <span asp-validation-for="Password" class="alert-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label> Şifre Tekrar</label>
+                    <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="********">
+                    <span asp-validation-for="ConfirmPassword" class="alert-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Yazar Görseli Yükle</label>
+                    <input type="file" asp-for="imageUrl" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                <button type="submit" asp-action="Index" asp-controller="Dashboard" class="btn btn-gradient-danger mr-2">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>
+
